@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Catherine Tsang</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Catherine Tsang, NYU Stern '29. Product, marketing, partnerships and social impact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&display=swap">
+<style>
+/* Layout: airy off-white page with iris type and fills; single light theme by choice. Left-aligned column, two-up project cards, timeline rows with logo slots */
+:root{
+  color-scheme:light;
+  --bg:#fbfaff;
+  --card:#ffffff;
+  --soft:#f2f0fd;
+  --line:#e6e3f6;
+  --iris:#5847d6;
+  --iris-deep:#3b2fa3;
+  --text:#3d3866;
+  --muted:#7a76a0;
+  --on-iris:#ffffff;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --mono:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --maxw:1040px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;background:var(--bg)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--iris);outline-offset:3px;border-radius:6px}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.12;text-wrap:balance;margin:0;letter-spacing:-0.015em;color:var(--iris-deep)}
+p{margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+.eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--iris)}
+
+/* Nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb, var(--bg) 90%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{font-family:var(--display);font-weight:700;font-size:1.1rem;text-decoration:none;color:var(--iris-deep)}
+.brand span{color:var(--iris)}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.95rem}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--iris)}
+.navright{display:flex;align-items:center;gap:22px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .95rem/1 var(--body);padding:12px 18px;border-radius:999px;text-decoration:none;border:1.5px solid var(--iris);cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn-solid{background:var(--iris);color:var(--on-iris)}
+.btn-ghost{background:var(--card);color:var(--iris)}
+.btn-ghost:hover{background:var(--soft)}
+.btn-sm{padding:8px 13px;font-size:.86rem}
+.btn svg{width:16px;height:16px;flex:none}
+
+/* Hero */
+.hero{padding-block:64px 56px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.hero h1{font-size:clamp(2.8rem, 6.5vw, 4.8rem);font-weight:700;letter-spacing:-0.035em;margin-top:16px}
+.hero h1 .dot{color:var(--iris)}
+.pitch{font-family:var(--display);font-weight:500;font-size:clamp(1.2rem, 2.2vw, 1.5rem);line-height:1.38;margin-top:18px;max-width:32ch;color:var(--text)}
+.pitch em{font-style:normal;color:var(--iris);font-weight:600}
+.hero .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.portrait{margin:0;position:relative;width:280px;max-width:100%}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 50%;border-radius:22px;background:var(--soft);box-shadow:0 0 0 5px var(--bg),0 0 0 7px var(--iris)}
+.portrait figcaption{position:absolute;left:50%;transform:translateX(-50%);bottom:-14px;white-space:nowrap;background:var(--card);border:1px solid var(--line);color:var(--iris-deep);border-radius:999px;padding:7px 14px;font-size:.8rem;font-weight:500;display:flex;align-items:center;gap:8px;box-shadow:0 8px 24px -14px rgba(60,40,170,.45)}
+.portrait figcaption i{width:7px;height:7px;border-radius:50%;background:var(--iris);display:block}
+
+/* Sections */
+section.block{padding-block:80px 0}
+.sechead{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:18px;margin-bottom:30px}
+.sechead h2{font-size:clamp(1.9rem,3.6vw,2.5rem);font-weight:700;margin-top:8px}
+
+/* About */
+.about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:44px;align-items:start}
+.about .lede{font-size:1.12rem;max-width:56ch}
+.about .lede strong{color:inherit;font-weight:inherit}
+.facts{display:grid;gap:0;margin:0;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:10px 30px}
+.facts div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding-block:20px;border-top:1px solid var(--line);font-size:1.12rem;line-height:1.5}
+.facts div:first-child{border-top:0}
+.facts dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.facts dd{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:20px 0 0;padding:0}
+.chips li{font-size:.88rem;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 13px}
+.chips li.hi{border-color:color-mix(in srgb, var(--iris) 40%, var(--line));color:var(--iris);background:var(--soft);font-weight:500}
+
+/* Placeholders */
+.ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;border:1.5px dashed color-mix(in srgb, var(--iris) 45%, transparent);background:var(--soft);color:var(--iris);border-radius:12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;padding:12px;line-height:1.35}
+.ph b{font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:.64rem;opacity:.75}
+.logo{width:48px;height:48px;flex:none;border-radius:12px;padding:4px;font-size:.56rem}
+.logo b{font-size:.54rem}
+.todo{font-family:var(--mono);font-size:.8em;background:var(--soft);color:var(--iris);border:1px dashed var(--iris);border-radius:6px;padding:1px 6px}
+
+/* Tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:var(--card)}
+.tab{font:500 .9rem/1 var(--body);color:var(--muted);background:transparent;border:0;border-radius:999px;padding:10px 15px;cursor:pointer}
+.tab:hover{color:var(--iris)}
+.tab[aria-selected="true"]{background:var(--iris);color:var(--on-iris)}
+.group+.group{margin-top:48px}
+.grouphead{margin-bottom:16px}
+.grouphead h3{font-size:1.25rem;font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+
+/* Project cards */
+.proj{border:1px solid var(--line);border-radius:20px;background:var(--card);display:flex;flex-direction:column;overflow:hidden;transition:border-color .2s ease, box-shadow .2s ease}
+.proj:hover{border-color:color-mix(in srgb, var(--iris) 40%, var(--line));box-shadow:0 18px 40px -26px rgba(60,40,170,.5)}
+.proj .ph.graphic{aspect-ratio:16/7;border-radius:0;border-width:0 0 1.5px 0;max-width:100%}
+.proj-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:12px;flex:1;min-width:0}
+.meta{font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;color:var(--muted);text-transform:uppercase}
+.proj h4{font-size:1.25rem;font-weight:600;line-height:1.22}
+.pdr{display:grid;gap:9px;margin:0}
+.pdr div{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;font-size:.93rem;line-height:1.5}
+.pdr dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--iris);padding-top:4px}
+.pdr dd{margin:0}
+.pdr .result dd{font-weight:500;color:var(--iris-deep)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.badge{display:inline-flex;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;background:var(--iris);color:var(--on-iris);border-radius:999px;padding:5px 10px;align-self:flex-start}
+.proj.empty{border-style:dashed;background:transparent}
+.proj.empty p.note{color:var(--muted);font-size:.93rem}
+
+.thumb{display:block;width:100%;aspect-ratio:16/7;object-fit:cover;object-position:50% 50%;border-bottom:1px solid var(--line);background:var(--soft)}
+.logo-txt{display:flex;align-items:center;justify-content:center;width:48px;height:48px;flex:none;border-radius:12px;border:1px solid var(--line);background:#fff;font-family:var(--display);font-weight:700;font-size:.92rem;letter-spacing:.02em;color:var(--iris-deep)}
+.logo-img{display:block;width:48px;height:48px;flex:none;border-radius:12px;object-fit:cover;border:1px solid var(--line);background:#fff}
+
+/* Experience */
+.xp{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:44px}
+.xp h3{font-family:var(--mono);font-weight:500;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.timeline{list-style:none;margin:0;padding:0}
+.timeline>li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;padding-block:18px;border-top:1px solid var(--line)}
+.role{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 14px;align-items:baseline}
+.role strong{font-family:var(--display);font-size:1.06rem;font-weight:600;color:var(--iris-deep)}
+.when{font-family:var(--mono);font-size:.74rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.org{color:var(--muted);font-size:.92rem;margin-top:1px}
+.line1{font-size:.93rem;margin-top:6px}
+.num{font-weight:600;color:var(--iris)}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.skillset{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;display:grid;gap:4px;align-content:start}
+.skillset h3{font-size:1rem;font-weight:600}
+.skillset .chips{margin-top:8px}
+.skillset .chips li{background:var(--bg)}
+.skillset .chips li.hi{background:var(--soft)}
+
+/* Contact */
+.contact{margin-top:88px;background:var(--soft);border-top:1px solid var(--line)}
+.contact .wrap{padding-block:64px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center}
+.contact h2{font-size:clamp(2.1rem,4.6vw,3.2rem);font-weight:700}
+.contact p{margin-top:14px;max-width:42ch}
+.cbox{display:grid;gap:10px}
+.cline{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 16px}
+.cline .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block}
+.cline .val{font-weight:600;color:var(--iris-deep);user-select:all;word-break:break-all;text-decoration:none}
+.cbtn{font:600 .84rem/1 var(--body);background:var(--iris);color:var(--on-iris);border:0;border-radius:999px;padding:10px 14px;cursor:pointer;text-decoration:none;white-space:nowrap}
+footer{background:var(--soft)}
+footer .wrap{border-top:1px solid var(--line);padding-block:20px;font-size:.84rem;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+
+
+/* Quieter type: no small caps labels, no pill tags */
+.eyebrow{font-family:var(--body);font-size:1rem;letter-spacing:0;text-transform:none;color:var(--muted)}
+.meta{font-family:var(--body);font-size:.88rem;letter-spacing:0;text-transform:none;color:var(--muted)}
+.pdr dt{font-family:var(--body);font-size:.88rem;letter-spacing:0;text-transform:none;color:var(--iris-deep);font-weight:600;padding-top:1px}
+.facts dt{font-family:var(--body);font-size:1rem;letter-spacing:0;text-transform:none;color:var(--muted);padding-top:1px}
+.xp h3{font-family:var(--display);font-size:1rem;letter-spacing:0;text-transform:none;color:var(--muted);font-weight:600}
+.when{font-family:var(--body);font-size:.85rem}
+.cline .lbl{font-family:var(--body);font-size:.85rem;letter-spacing:0;text-transform:none}
+.interests{margin-top:16px;color:var(--muted);max-width:56ch}
+.skillset p{font-size:.95rem;margin-top:4px}
+.proj:hover{box-shadow:none}
+.sechead h2{margin-top:0}
+
+
+/* Experience flip cards */
+.xp{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.flip{perspective:1800px;cursor:pointer;border-radius:24px;display:grid}
+.flip-inner{display:grid;position:relative;transition:transform .7s cubic-bezier(.3,.7,.2,1);transform-style:preserve-3d}
+.face.back{position:absolute;inset:0}
+.flip.on .face.back{position:relative;inset:auto}
+.flip.on .face.front{position:absolute;inset:0}
+.flip.on .flip-inner{transform:rotateY(180deg)}
+.face{grid-area:1/1;-webkit-backface-visibility:hidden;backface-visibility:hidden;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:30px 30px 26px;display:flex;flex-direction:column;min-width:0}
+.face.back{transform:rotateY(180deg)}
+.flip:hover .face{border-color:color-mix(in srgb, var(--iris) 40%, var(--line))}
+.face h3{font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--iris-deep);letter-spacing:-0.01em;text-transform:none;margin:0}
+.front{justify-content:center;align-items:flex-start;gap:18px;background:var(--soft);position:relative;padding-bottom:64px}
+.front .hint{position:absolute;left:30px;bottom:26px;padding:0}
+.front h3{font-size:clamp(2rem,4vw,2.6rem)}
+.flip-sub{color:var(--muted);font-size:1.15rem}
+.flip-logos{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.flip-logos .logo-img,.flip-logos .logo-txt{width:84px;height:84px;border-radius:20px}
+.flip-logos .logo-txt{font-size:1.4rem}
+.hint{margin-top:auto;padding-top:14px;font-size:.92rem;font-weight:500;color:var(--iris)}
+.back .timeline{margin-top:10px}
+.back .timeline>li{grid-template-columns:56px minmax(0,1fr);gap:18px;padding-block:18px}
+.back .timeline>li:first-child{border-top:0}
+.back .logo-img,.back .logo-txt{width:56px;height:56px;border-radius:14px}
+.back .role strong{font-size:1.15rem}
+.back .org{font-size:1rem}
+.back .line1{font-size:1rem}
+.flip-logos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px;margin-top:10px;width:100%}
+.org-tile{display:flex;align-items:center;gap:14px;font-size:1.05rem;font-weight:500;color:var(--iris-deep);line-height:1.3}
+.org-tile .logo-img,.org-tile .logo-txt{width:72px;height:72px;border-radius:18px;flex:none}
+.org-tile .logo-txt{font-size:1.25rem}
+@media (prefers-reduced-motion: reduce){.flip-inner{transition:none}}
+@media (max-width: 880px){.xp{grid-template-columns:1fr}}
+@media (max-width: 640px){.flip-logos{grid-template-columns:1fr;gap:14px}.org-tile .logo-img,.org-tile .logo-txt{width:56px;height:56px;border-radius:14px}.face{padding:24px 22px 22px}.front{padding-bottom:58px}.front .hint{left:22px;bottom:22px}.back .timeline>li{grid-template-columns:44px minmax(0,1fr);gap:14px}.back .logo-img,.back .logo-txt{width:44px;height:44px;border-radius:12px}}
+
+/* Responsive */
+@media (max-width: 880px){
+  .nav ul{display:none}
+  .hero{padding-block:40px 48px}
+  .hero .wrap{grid-template-columns:1fr;gap:36px}
+  .portrait{width:240px;order:-1}
+  .about,.xp,.contact .wrap{grid-template-columns:1fr}
+  .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width: 640px){
+  body{font-size:16px}
+  section.block{padding-block:60px 0}
+  .cards,.skills{grid-template-columns:1fr}
+  .pdr div{grid-template-columns:1fr;gap:1px}
+  .pdr dt{padding-top:0}
+  .proj-body{padding:20px}
+  .portrait{width:200px}
+  .tabs{border-radius:16px}
+}
+</style>
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top">Catherine Tsang</a>
+    <div class="navright">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn-solid btn-sm" href="Catherine_Tsang_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">NYU Stern · Class of 2029</p>
+        <h1>Catherine Tsang</h1>
+        <p class="pitch">I'm passionate about the intersection between <em>business</em>, <em>technology</em>, and <em>social impact</em>.</p>
+        <div class="actions">
+          <a class="btn btn-solid" href="#work">Projects</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/catherine-tsang-b8b201280/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"/></svg>
+            LinkedIn</a>
+          <a class="btn btn-ghost" href="Catherine_Tsang_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
+      </div>
+      <figure class="portrait">
+        <img src="img/headshot.jpg" alt="Portrait of Catherine Tsang" width="800" height="800">
+      </figure>
+    </div>
+  </header>
+
+  <section class="block" id="about" style="padding-top:48px">
+    <div class="wrap">
+      <div class="sechead"><h2>About</h2></div>
+      <div class="about">
+        <div>
+          <p class="lede">I like building things that help people. At NYU Stern, I study finance and marketing. Outside of class, I've shipped product at a <strong>YC startup</strong> building AI software for clinical trials, researched what makes <strong>Fortune 500 companies</strong> donate, and helped raise <strong>$360K+</strong> for an AAPI nonprofit.</p>
+          <p class="interests">I'm interested in product management, marketing, partnerships and business development, corporate philanthropy, and nonprofit development.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>School</dt><dd>NYU Stern, B.S. in Business, May 2029</dd></div>
+          <div><dt>Studying</dt><dd>Finance &amp; Marketing; minor in Public Policy and Management</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="sechead">
+        <h2>Projects</h2>
+        <div class="tabs" role="tablist" aria-label="Filter projects">
+          <button class="tab" role="tab" id="tab-all" aria-selected="true" data-filter="all">All</button>
+          <button class="tab" role="tab" id="tab-product" aria-selected="false" data-filter="product">Product</button>
+          <button class="tab" role="tab" id="tab-impact" aria-selected="false" data-filter="impact">Social Impact</button>
+          <button class="tab" role="tab" id="tab-writing" aria-selected="false" data-filter="writing">Writing</button>
+        </div>
+      </div>
+
+      <div class="group" data-group="product">
+        <div class="grouphead"><h3>Product</h3></div>
+        <div class="cards">
+          <article class="proj">
+            <img class="thumb" src="img/harbor.jpg" alt="Harbor EDC practice sandbox showing a Demographics form beside its source document" loading="lazy">
+            <div class="proj-body">
+              <p class="meta">Harbor AI (YC Spring 2026) · PM Intern · Summer 2026</p>
+              <h4>A practice lab for clinical trial software</h4>
+              <dl class="pdr">
+                <div><dt>Problem</dt><dd>Aspiring clinical research coordinators and associates had no safe way to practice in real electronic data capture (EDC) software before working on a live trial.</dd></div>
+                <div><dt>Built</dt><dd>Two production sandboxes of Harbor's AI-powered EDC, built with Claude Code, plus training modules embedded in CRLN's coordinator and associate courses.</dd></div>
+                <div class="result"><dt>Result</dt><dd>Launched in August 2026 with the Clinical Research Learning Network, a training platform used by 1,200+ people in 60+ countries.</dd></div>
+              </dl>
+              <div class="links">
+                <a class="btn btn-ghost btn-sm" href="https://crln-learn-cra.runharbor.xyz/" target="_blank" rel="noopener">CRA sandbox ↗</a>
+                <a class="btn btn-ghost btn-sm" href="https://crln-learn-crc.runharbor.xyz/capture/subjects" target="_blank" rel="noopener">CRC sandbox ↗</a>
+                <a class="btn btn-ghost btn-sm" href="https://runharbor.com/blog/2026-08-06-crln-and-harbor-launch-hands-on-edc-practice" target="_blank" rel="noopener">Launch post ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj">
+            <img class="thumb" src="img/tgtg.jpg" alt="Too Good To Go prototype showing the new reviews and Q&amp;A section" loading="lazy">
+            <div class="proj-body">
+              <p class="meta">NYU Product Management Club · Spring 2026</p>
+              <h4>A comment section for Too Good To Go</h4>
+              <dl class="pdr">
+                <div><dt>Problem</dt><dd>Surprise-bag buyers felt like they were gambling; star ratings didn't explain quality.</dd></div>
+                <div><dt>Built</dt><dd>7 user interviews, a PRD, a prototype, and KPIs and OKRs.</dd></div>
+                <div class="result"><dt>Result</dt><dd>Pitched to product manager judges after a 10-week program.</dd></div>
+              </dl>
+              <div class="links">
+                <a class="btn btn-ghost btn-sm" href="Too_Good_To_Go_PM_Case_Study.pdf" target="_blank" rel="noopener">View deck ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="group" data-group="impact">
+        <div class="grouphead"><h3>Social Impact</h3></div>
+        <div class="cards">
+          <article class="proj">
+            <img class="thumb" src="img/aav.jpg" alt="Title slide: Corporate Community Giving in a Shifting Landscape" loading="lazy">
+            <div class="proj-body">
+              <p class="meta">Asian American Voices · Summer 2026</p>
+              <h4>Corporate giving in a shifting landscape</h4>
+              <dl class="pdr">
+                <div><dt>Problem</dt><dd>Asian American Voices, Garry Tan's nonprofit, needed to know how to pitch companies as they pulled back from DEI.</dd></div>
+                <div><dt>Built</dt><dd>Outreach to 30+ Bay Area companies and interviews with Fortune 500 leaders.</dd></div>
+                <div class="result"><dt>Result</dt><dd>25% response rate. Found that giving priorities held steady while the language shifted to "community impact."</dd></div>
+              </dl>
+              <div class="links">
+                <a class="btn btn-ghost btn-sm" href="AAV_Corporate_Giving_Research.pdf" target="_blank" rel="noopener">View deck ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj">
+            <img class="thumb" src="img/bobst.jpg" alt="Mockup of the Bobst Wellness Café" loading="lazy">
+            <div class="proj-body">
+              <p class="meta">NYU Stern Social Impact Fellows · Team of 5 · 1st place</p>
+              <h4>Bobst Wellness Café</h4>
+              <dl class="pdr">
+                <div><dt>Problem</dt><dd>51.5% of students we surveyed said Bobst Library doesn't help reduce their stress.</dd></div>
+                <div><dt>Built</dt><dd>A survey of 70+ students, feasibility talks with library leadership, mockups, and a cost forecast.</dd></div>
+                <div class="result"><dt>Result</dt><dd>Won 1st place with a plan for a wellness café payable with Dining Dollars.</dd></div>
+              </dl>
+              <div class="links">
+                <a class="btn btn-ghost btn-sm" href="Bobst_Wellness_Cafe_Deck.pdf" target="_blank" rel="noopener">View deck ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="group" data-group="writing">
+        <div class="grouphead"><h3>Writing</h3></div>
+        <div class="cards">
+          <article class="proj">
+            <img class="thumb" src="img/blackbird.jpg" alt="Header of the article Blackbird: The Future of Eating Out?" loading="lazy">
+            <div class="proj-body">
+              <p class="meta">Girls Into VC at NYU · April 2026</p>
+              <h4>Blackbird: The Future of Eating Out?</h4>
+              <p style="font-size:.93rem">How a payments and loyalty startup gives restaurants back their guest data, written during my Girls Into VC fellowship.</p>
+              <div class="links">
+                <a class="btn btn-ghost btn-sm" href="https://girlsintovcatnyu.substack.com/p/blackbird-the-future-of-eating-out" target="_blank" rel="noopener">Read the article ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="sechead"><h2>Experience</h2></div>
+      <div class="xp">
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Professional experience. Press to flip the card.">
+          <div class="flip-inner">
+            <div class="face front">
+              <h3>Professional</h3>
+              <p class="flip-sub">Product, nonprofit, and city government</p>
+              <div class="flip-logos"><div class="org-tile"><img class="logo-img" src="img/logo-harbor.png" alt=""><span>Harbor AI</span></div><div class="org-tile"><div class="logo-txt" aria-hidden="true">AAV</div><span>Asian American Voices</span></div><div class="org-tile"><img class="logo-img" src="img/logo-sfcity.png" alt=""><span>SF City Hall</span></div><div class="org-tile"><img class="logo-img" src="img/logo-sfpuc.png" alt=""><span>SF Public Utilities Commission</span></div></div>
+              <span class="hint">Click to see roles <span aria-hidden="true">↻</span></span>
+            </div>
+            <div class="face back" aria-hidden="true">
+              <h3>Professional</h3>
+              <ol class="timeline">
+            <li>
+              <img class="logo-img" src="img/logo-harbor.png" alt="Harbor logo">
+              <div>
+                <div class="role"><strong>Product Management Intern</strong><span class="when">Jul – Aug 2026</span></div>
+                <p class="org">Harbor AI (Y Combinator, Spring 2026)</p>
+                <p class="line1">Shipped two practice sandboxes of Harbor's clinical trial software for research trainees.</p>
+              </div>
+            </li>
+            <li>
+              <div class="logo-txt" role="img" aria-label="Asian American Voices">AAV</div>
+              <div>
+                <div class="role"><strong>Intern</strong><span class="when">Jun – Aug 2026</span></div>
+                <p class="org">Asian American Voices Foundation</p>
+                <p class="line1">Led donor outreach and logistics for a 250+ guest gala that raised $360K+.</p>
+              </div>
+            </li>
+            <li>
+              <img class="logo-img" src="img/logo-sfcity.png" alt="Seal of the City and County of San Francisco">
+              <div>
+                <div class="role"><strong>Intern</strong><span class="when">Mar 2024 – Aug 2025</span></div>
+                <p class="org">Office of SF District 1 Supervisor Connie Chan</p>
+                <p class="line1">Organized monthly night markets with 21,000+ attendees.</p>
+              </div>
+            </li>
+            <li>
+              <img class="logo-img" src="img/logo-sfpuc.png" alt="SFPUC logo">
+              <div>
+                <div class="role"><strong>Budget &amp; Finance Intern</strong><span class="when">Jun – Aug 2024</span></div>
+                <p class="org">San Francisco Public Utilities Commission</p>
+                <p class="line1">Won 1st place in the intern design competition.</p>
+              </div>
+            </li>
+          </ol>
+              <span class="hint">Click to flip back <span aria-hidden="true">↻</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="flip" role="button" tabindex="0" aria-pressed="false" aria-label="Leadership experience. Press to flip the card.">
+          <div class="flip-inner">
+            <div class="face front">
+              <h3>Leadership</h3>
+              <p class="flip-sub">Clubs, fellowships, and student media</p>
+              <div class="flip-logos"><div class="org-tile"><img class="logo-img" src="img/logo-icc.png" alt=""><span>Stern Inter-Club Council</span></div><div class="org-tile"><img class="logo-img" src="img/logo-pmclub.png" alt=""><span>NYU Product Management Club</span></div><div class="org-tile"><img class="logo-img" src="img/logo-givc.png" alt=""><span>Girls Into VC</span></div><div class="org-tile"><img class="logo-img" src="img/logo-emerald.png" alt=""><span>The Emerald</span></div></div>
+              <span class="hint">Click to see roles <span aria-hidden="true">↻</span></span>
+            </div>
+            <div class="face back" aria-hidden="true">
+              <h3>Leadership</h3>
+              <ol class="timeline">
+            <li>
+              <img class="logo-img" src="img/logo-icc.png" alt="Stern Inter-Club Council logo">
+              <div>
+                <div class="role"><strong>Co-Director, External Affairs</strong><span class="when">2025 – Now</span></div>
+                <p class="org">Stern Inter-Club Council · 750+ event attendees</p>
+              </div>
+            </li>
+            <li>
+              <img class="logo-img" src="img/logo-pmclub.png" alt="NYU Product Management Club logo">
+              <div>
+                <div class="role"><strong>Product Team Coordinator</strong><span class="when">2026 – Now</span></div>
+                <p class="org">NYU Product Management Club · teach 10 underclassmen</p>
+              </div>
+            </li>
+            <li>
+              <img class="logo-img" src="img/logo-givc.png" alt="Girls Into VC logo">
+              <div>
+                <div class="role"><strong>Fellow</strong><span class="when">Spring 2026</span></div>
+                <p class="org">NYU Girls Into Venture Capital</p>
+              </div>
+            </li>
+            <li>
+              <img class="logo-img" src="img/logo-emerald.png" alt="Sacred Heart Cathedral Prep logo">
+              <div>
+                <div class="role"><strong>Head of Multimedia</strong><span class="when">2024 – 2025</span></div>
+                <p class="org">The Emerald student newspaper · 20-person team</p>
+              </div>
+            </li>
+          </ol>
+              <span class="hint">Click to flip back <span aria-hidden="true">↻</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap">
+      <div class="sechead"><h2>Skills</h2></div>
+      <div class="skills">
+        <div class="skillset"><h3>Product</h3><p>Claude Code, Figma, user interviews, PRDs, prototyping</p></div>
+        <div class="skillset"><h3>Business</h3><p>Sales, market analysis, investment theses, pitching</p></div>
+        <div class="skillset"><h3>People &amp; impact</h3><p>Donor outreach, event planning, fundraising, mentoring</p></div>
+        <div class="skillset"><h3>Tools</h3><p>Canva, Lightroom, Photoshop, PowerPoint</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Get in touch</h2>
+        <p>I'm looking for summer 2027 internships, and I'm always happy to chat.</p>
+      </div>
+      <div class="cbox">
+        <div class="cline">
+          <div><span class="lbl">Email</span><a class="val" id="email" href="mailto:ct3484@stern.nyu.edu">ct3484@stern.nyu.edu</a></div>
+          <button class="cbtn" id="copy" type="button">Copy</button>
+        </div>
+        <div class="cline">
+          <div><span class="lbl">LinkedIn</span><span class="val">catherine-tsang</span></div>
+          <a class="cbtn" href="https://www.linkedin.com/in/catherine-tsang-b8b201280/" target="_blank" rel="noopener">Open ↗</a>
+        </div>
+        <div class="cline">
+          <div><span class="lbl">Resume</span><span class="val">One-page PDF</span></div>
+          <a class="cbtn" href="Catherine_Tsang_Resume.pdf" target="_blank" rel="noopener">View ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© 2026 Catherine Tsang</span><span>New York, NY</span></div></footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  var groups=[].slice.call(document.querySelectorAll('.group'));
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var f=t.dataset.filter;
+      tabs.forEach(function(x){x.setAttribute('aria-selected', x===t?'true':'false')});
+      groups.forEach(function(g){g.hidden = !(f==='all' || g.dataset.group===f)});
+    });
+  });
+  var btn=document.getElementById('copy');
+  btn.addEventListener('click',function(){
+    function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy'},1600)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(document.getElementById('email'));var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected';}
+    try{navigator.clipboard.writeText('ct3484@stern.nyu.edu').then(done,fallback)}catch(e){fallback()}
+  });
+})();
+</script>
+
+
+<script>
+(function(){
+  [].forEach.call(document.querySelectorAll('.flip'),function(card){
+    var front=card.querySelector('.front'),back=card.querySelector('.back');
+    function toggle(){var on=card.classList.toggle('on');card.setAttribute('aria-pressed',on);front.setAttribute('aria-hidden',on);back.setAttribute('aria-hidden',!on);}
+    card.addEventListener('click',toggle);
+    card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+  });
+})();
+</script>
+</body>
+</html>
