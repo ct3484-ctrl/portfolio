@@ -301,9 +301,9 @@ body.dark-red #spot{background:radial-gradient(ellipse 60% 45% at 50% -6%,rgba(1
 .case .kind,.case h2,.rtitle,.prose h2,.shelf-h h3,.pr .cap>span,.casenav span{text-wrap:balance}
 .case p,.case ul.out li,.prose p{text-wrap:pretty}
 /* stacked photos */
-.stack{position:relative;padding-bottom:var(--sb,15%)}
+.stack{position:relative;padding-bottom:var(--sb,16%)}
 .stack .big.main{position:relative;z-index:1}
-.stack .big.sec{position:absolute;z-index:2;border:0;cursor:pointer;width:var(--sw,62%);right:var(--sr,-5%);bottom:0;padding:4.5% 4.5% 11%;transform:rotate(var(--srot,4deg));transition:transform .5s var(--ease),box-shadow .5s;box-shadow:0 30px 60px -18px rgba(0,0,0,.95),0 2px 4px rgba(0,0,0,.45)}
+.stack .big.sec{position:absolute;z-index:2;border:0;cursor:pointer;width:var(--sw,62%);right:var(--sr,-5%);bottom:-26%;padding:4.5% 4.5% 11%;transform:rotate(var(--srot,4deg));transition:transform .5s var(--ease),box-shadow .5s;box-shadow:0 30px 60px -18px rgba(0,0,0,.95),0 2px 4px rgba(0,0,0,.45)}
 .stack .big.sec:hover{transform:rotate(calc(var(--srot,4deg) * .5)) translateY(-4px)}
 .stack .big.sec.s1{--srot:-3deg;right:auto;left:8%;width:48%;z-index:2}
 .stack.sb{--sw:56%;--sr:-2%;--srot:-4deg;--sb:10%}
@@ -316,10 +316,9 @@ body.dark-red #spot{background:radial-gradient(ellipse 60% 45% at 50% -6%,rgba(1
 @media (prefers-reduced-motion:reduce){.secnav a{animation:none}}
 .orglogos{display:flex;gap:12px;align-items:center;margin:0 0 16px}.orglogos .orglogo{margin:0}
 /* about: Stern print */
-.about-stack{position:relative;padding-bottom:16%}
-.about-stack .stern{position:absolute;right:-14%;bottom:0;width:62%;z-index:2;padding:6% 6% 13%;transform:rotate(5deg);background:url(assets/img/paper.jpg) 0 0/100% 100%;box-shadow:0 30px 60px -18px rgba(0,0,0,.95),0 2px 4px rgba(0,0,0,.45)}
-.about-stack .stern img{display:block;width:100%;height:auto}
-@media (max-width:900px){.about-stack .stern{right:-6%}}
+.about-stack{position:relative}
+.about-stack img.stern,.case .about-stack img.stern{position:absolute;inset:auto;right:-16%;bottom:-9%;object-fit:contain;width:64%;height:auto;z-index:2;transform:rotate(5deg);box-shadow:0 18px 34px -10px rgba(0,0,0,.85)}
+@media (max-width:900px){.case .about-stack img.stern{right:-10%}}@media (max-width:600px){.case .about-stack img.stern{right:-4%;width:58%}}
 /* recruiter project page */
 .rec-proj .back{background:none;border:0;padding:0;font:inherit;color:var(--ink-2);cursor:pointer;margin-bottom:26px;display:inline-block;text-decoration:none}
 .rec-proj .back:hover{color:var(--ink)}
@@ -858,7 +857,7 @@ function openRoom(key){ curRoom=key; if(typeof introsw!=='undefined'){ introsw.h
   window.scrollTo(0,0); light(innerWidth/2,innerHeight*.45,520);
   let body="";
   if(lines[key]) body=`<div class="lamp" aria-hidden="true"></div>`+lines[key]();
-  if(key==="about") body=`<div class="split"><figure class="big case about-stack" style="display:block;margin:0;padding:0 0 16%;background:none;box-shadow:none"><div class="big" style="padding:14px 14px 48px"><div class="img develop" style="--ar:4/5;aspect-ratio:4/5;position:relative;overflow:hidden"><img src="assets/headshot.jpg" alt="Catherine Tsang" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%"></div></div><div class="stern"><img src="assets/logo/stern.png" alt="NYU Stern"></div></figure>
+  if(key==="about") body=`<div class="split"><figure class="big case about-stack" style="display:block;margin:0;padding:0 0 14%;background:none;box-shadow:none"><div class="big" style="padding:14px 14px 48px;position:relative"><div class="img develop" style="--ar:4/5;aspect-ratio:4/5;position:relative;overflow:hidden"><img src="assets/headshot.jpg" alt="Catherine Tsang" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%"></div><img class="stern" src="assets/logo/stern.png" alt="NYU Stern"></div></figure>
     <div class="prose bio">
     <p>Hi! My name is Catherine. I’m a sophomore at NYU Stern studying finance and marketing, with a minor in public policy and management. I’m passionate about bridging the intersection between business, technology, and social impact. This past summer, I built and shipped products for Harbor (YC ’26), an AI-native platform for clinical research, and interned for Garry Tan’s Asian American Voices Foundation, where I helped raise $360k and researched the catalysts behind Fortune 500 companies’ charitable giving.</p>
     <p>I currently serve as a Product Manager for Develop for Good, where I lead a team of student designers and engineers to redesign a nonprofit’s technological platforms. At NYU, I’m involved in various school clubs: Stern Inter-Club Council, Product Management Club, and Beta Alpha Psi.</p>
@@ -890,7 +889,7 @@ function caseFor(kind,i){
     const ph0=(it.photos||[])[0];
     big=`<div class="big">${ph0?`<div class="img develop" style="--ar:4/3"><img src="${ph0}" alt="${it.short}"${FIT}></div>`:logoImg(it,"4/3",true).replace(/^<span/,"<div").replace(/span>$/,"div>")}<span class="cap">${it.when}</span></div>
 `;
-    if((it.photos||[]).length>1) big=`<div class="stack">${big.replace('<div class="big">','<div class="big main">')}${it.photos.slice(1,3).map((p,k)=>`<button type="button" class="big sec s${k}" aria-label="Bring this photo to the front"><div class="img" style="--ar:3/2"><img src="${p}" alt=""${FIT}></div></button>`).join("")}</div>`;
+    if((it.photos||[]).length>1){ const secs=it.photos.slice(1,3).map((p,k)=>`<button type="button" class="big sec s${k}" aria-label="Bring this photo to the front"><div class="img" style="--ar:3/2"><img src="${p}" alt=""${FIT}></div></button>`).join(""); big=`<div class="stack">${big.replace('<div class="big">','<div class="big main">').replace(/<\/div>\s*$/,secs+"</div>")}</div>`; }
     text=`${ph0&&it.logo?logoTag(it):""}<p class="kind">${it.role}, ${it.where}</p><h2>${it.org}</h2><ul class="out">${it.b.map(x=>`<li>${x}</li>`).join("")}</ul>`;
   } else {
     big=`<div class="big"><div class="img develop" style="--ar:3/2;--ph:${ph(it.c)}">${it.photo?`<img src="${it.photo}" alt="">`:""}</div><span class="cap">Frame ${i+1}</span></div>`;
